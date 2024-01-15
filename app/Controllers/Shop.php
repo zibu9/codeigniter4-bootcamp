@@ -8,4 +8,6 @@ class Shop extends BaseController
     {
         return view('shop');
     }
+
+    
 }
