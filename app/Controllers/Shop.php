@@ -9,8 +9,8 @@ class Shop extends BaseController
         return view('shop');
     }
 
-    public function product()
+    public function product($id)
     {
-        echo "product";
+        echo "product : $id";
     }
 }
