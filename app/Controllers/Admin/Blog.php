@@ -8,12 +8,19 @@ class Blog extends BaseController
 {
     public function index()
     {
-        echo "admin shop area";
+        echo "all post";
     }
 
     public function create()
     {
-        echo "showing all user";
+        return view('blog_form');
+    }
+
+    public function store()
+    {
+        echo'<pre>';
+            print_r($_POST);
+        echo'</pre>';
     }
 
 }

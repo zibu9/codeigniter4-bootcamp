@@ -28,4 +28,10 @@ $routes->group('admin', function ($routes){
     $routes->get('users', 'Admin\User::allUsers');
     $routes->get('user', 'Admin\User::index');
     $routes->get('/', 'Admin\User::index');
+
+    //blog routes
+
+    $routes->get('/', 'Admin\Blog::index');
+    $routes->get('blog/new', 'Admin\Blog::create');
+    $routes->post('blog', 'Admin\Blog::store');
 });
