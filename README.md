@@ -21,6 +21,8 @@ requirement : php 7.4 or latest version [Requirement](https://codeigniter.com/us
 
 ## Controllers and Routing
 
+[docs](https://codeigniter.com/user_guide/incoming/index.html)
+
 in CI4 if you want to use autoroutes you must setAutoroutes to true in config/routes.php file like 
 
 ```bash
@@ -50,3 +52,46 @@ for example
     }
 
 ```
+
+static pages route is good to render statc page in view folder
+
+```bash
+<?php
+
+    $routes->get('pages', [Pages::class, 'index']);
+    $routes->get('(:segment)', [Pages::class, 'view']);
+
+```
+
+you must create Pages controllers 
+
+```bash
+    <?php
+
+    use CodeIgniter\Exceptions\PageNotFoundException;
+
+    class Pages extends BaseController
+    {
+        public function index()
+        {
+            return view('welcome_message');
+        }
+
+        public function view($page = 'home')
+        {
+            if (! is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
+                throw new PageNotFoundException($page);
+            }
+
+            $data['title'] = ucfirst($page);
+
+            return view('templates/header', $data)
+                . view('pages/' . $page)
+                . view('templates/footer');
+        }
+    }
+
+```
+
+see more in [docs](https://codeigniter.com/user_guide/tutorial/static_pages.html)
+
