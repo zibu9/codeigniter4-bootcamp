@@ -3,6 +3,8 @@
 use App\Controllers\Pages;
 use CodeIgniter\Router\RouteCollection;
 
+
+$routes->setAutoRoute(true);
 /**
  * @var RouteCollection $routes
  */

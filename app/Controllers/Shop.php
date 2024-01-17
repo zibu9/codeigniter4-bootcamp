@@ -13,4 +13,9 @@ class Shop extends BaseController
     {
         echo "product : $id";
     }
+
+    protected function check()
+    {
+        echo "protected function";
+    }
 }
