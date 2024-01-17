@@ -25,5 +25,7 @@ $routes->add('blog', function (){
 //route group
 
 $routes->group('admin', function ($routes){
-    $routes->get('users', 'User::allUsers');
+    $routes->get('users', 'Admin\User::allUsers');
+    $routes->get('user', 'Admin\User::index');
+    $routes->get('/', 'Admin\User::index');
 });
